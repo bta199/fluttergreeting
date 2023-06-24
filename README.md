@@ -8,4 +8,8 @@ See https://bta199.github.io/fluttergreeting/ to give it a try!
 
 See https://docs.flutter.dev/get-started/install for more information.
 
-Updating the Github pages site is currently a manual process (lazy I know!) copy the relevant files into the docs folder.
+Updating the Github pages site is currently a manual process (lazy I know!). Build the project with 
+
+```flutter build web --release --web-renderer html --base-href /fluttergreeting/```
+
+then copy the relevant files into the docs folder.

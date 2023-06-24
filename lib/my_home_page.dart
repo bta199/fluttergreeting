@@ -29,25 +29,33 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<Answer> _getAnswer() async {
-    var response = await http.get(Uri.parse('https://randomuser.me/api/'));
+    try {
+      var response = await http.get(Uri.parse('https://randomuser.me/api/'));
 
-    if (response.statusCode == 200) {
-      List<dynamic> results = jsonDecode(response.body)['results'];
-      var users = results.map((x) => User.fromJson(x)).toList();
+      if (response.statusCode == 200) {
+        List<dynamic> results = jsonDecode(response.body)['results'];
+        var users = results.map((x) => User.fromJson(x)).toList();
 
-      if (users.isEmpty || users[0].name?.first == null) {
-        var name = Strings.loadFailedText;
-        var subText = Strings.loadFailedSubtext;
-        return Answer(name, subText);
+        if (users.isEmpty || users[0].name?.first == null) {
+          var name = Strings.loadFailedText;
+          var subText = Strings.loadFailedSubtext;
+          return Answer(name, subText);
+        }
+
+        var subText = Strings.loadSuccessText;
+        return Answer('${users[0].name?.first}!', subText);
       }
 
-      var subText = Strings.loadSuccessText;
-      return Answer('${users[0].name?.first}!', subText);
-    } else {
-      var name = Strings.loadFailedText;
-      var subText = Strings.loadFailedSubtext;
-      return Answer(name, subText);
+      return _getFailedAnswer();
+    } catch (e) {
+      return _getFailedAnswer();
     }
+  }
+
+  Answer _getFailedAnswer() {
+    var name = Strings.loadFailedText;
+    var subText = Strings.loadFailedSubtext;
+    return Answer(name, subText);
   }
 
   void _randomizeName() {
