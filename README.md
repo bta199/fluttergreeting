@@ -1,16 +1,11 @@
-# flutter_greeter
+# Flutter Greeting
 
-A new Flutter project.
+This is a demo I made while learning more about https://flutter.dev/.
 
-## Getting Started
+See https://bta199.github.io/fluttergreeting/ to give it a try!
 
-This project is a starting point for a Flutter application.
+## Build/Run/Develop
 
-A few resources to get you started if this is your first Flutter project:
+See https://docs.flutter.dev/get-started/install for more information.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Updating the Github pages site is currently a manual process (lazy I know!) copy the relevant files into the docs folder.
